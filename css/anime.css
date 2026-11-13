@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf");
+    format: ("truetype");
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.overlay {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+}
+
+.conteudo-fundo {
+    position: relative;
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.conteudo-fundo h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.texto {
+    width: 95%;
+    margin: 0 auto 35px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.ovas {
+    width: 95%;
+    margin: 0 auto 35px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.ovas p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.fundo h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+}
+
+.texto h3,
+.ovas h3 {
+    font-family: "Ditty";
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.texto p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.texto strong {
+    Color: #d8d8d8;
+}
+
+.ova-links {
+    width: 100%;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 8px 8px;
+}
+
+.ova-links a {
+    width: 180px;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    background: #965812;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.ova-links a:hover {
+    background: #411d00;
+}
+
+.seasons {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.seasons h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    gap: 35px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .4s;
+    height: 390px;
+    width: 230px;
+    border: .2px solid white;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.08);
+    z-index: 50;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 48%;
+    padding: 25px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .95));
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.card h4 {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 5px;
+    font-size: 28px;
+    line-height: 1.1;
+    text-shadow: black;
+}
+
+.card p {
+    width: 100%;
+    height: 90px;
+    margin: 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.4;
+    text-shadow: black;
+}
+
+.botao {
+    margin-top: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 38px;
+    text-decoration: none;
+    color: white;
+    background: #965812;
+    padding: 0;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.botao:hover {
+    background: #411d00;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        Width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo h2 {
+        font-size: 58px;
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+
+    .texto {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .ovas {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        Border-radius: 15px;
+    }
+
+    .texto h3,
+    .ovas h3 {
+        font-size: 30px;
+    }
+
+    .texto p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .ovas p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .ova-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .ova-links a {
+        text-align: center;
+        width: 100%;
+        max-width: 250px;
+        height: 10px;
+    }
+
+    .seasons h2 {
+        font-size: 52px;
+        margin-bottom: 15px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 35px;
+        padding: 20px 10px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        height: 140px;
+        margin: 0 auto;
+        aspect-ratio: 2 / 3;
+    }
+
+    .texto-card {
+        min-height: 100%;
+        padding: 15px 15px 12px;
+        justify-content: center;
+    }
+
+    .card h4 {
+        width: 100%;
+        height: auto;
+        margin: 0 0 5px;
+        font-size: 20px;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+
+    .card p {
+        width: 100%;
+        height: auto;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.3;
+        display: block;
+    }
+
+    .botao {
+        width: 110px;
+        height: 32px;
+        font-size: 12px;
+        flex-shrink: 0;
+
+    }
+}

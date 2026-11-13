@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cloister";
+    src: url("../CloisterBlack.ttf") format("truetype");
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.home {
+    color: white;
+    text-decoration: none;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.fundo::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.conteudo-fundo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.conteudo-fundo>h1 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    max-width: 700px;
+    margin: 0 auto 20px;
+    color: #e0e0e0;
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.linha-do-tempo {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 390px;
+    padding: 10px 0;
+    overflow: visible;
+}
+
+.linha-do-tempo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    right: 5px;
+    height: 3px;
+    background: #965812;
+    transform: translateY(-50%);
+    border-radius: 5px;
+}
+
+.item-arco {
+    position: relative;
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 370px;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-decoration: none;
+}
+
+.item-arco::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 17px;
+    height: 17px;
+    background: #965812;
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.item-arco::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 43px;
+    background: #965812;
+    transform: translateX(-50%);
+}
+
+.card-arco {
+    position: absolute;
+    left: -25px;
+    right: 4px;
+    display: flex;
+    align-items: flex-end;
+    min-height: 110px;
+    min-width: 180px;
+    padding: 10px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, .75);
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .35);
+    transition: .3s;
+}
+
+.item-arco:nth-child(odd) .card-arco {
+    bottom: calc(50% + 43px);
+}
+
+.item-arco:nth-child(odd)::before {
+    bottom: 50%;
+}
+
+.item-arco:nth-child(even) .card-arco {
+    top: calc(50% + 43px);
+}
+
+.item-arco:nth-child(even)::before {
+    top: 50%;
+}
+
+.card-arco::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, .92) 0%, rgba(0, 0, 0, .4) 65%, rgba(0, 0, 0, .12) 100%);
+    z-index: -1;
+}
+
+.item-arco:hover .card-arco {
+    transform: translateY(-4px);
+    border-color: #d5a36c;
+    box-shadow: 0 9px 25px rgba(0, 0, 0, .55);
+}
+
+.numero {
+    font-family: "Cloister";
+    font-size: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    width: auto;
+    height: auto;
+}
+
+.card-arco h2 {
+    font-family: "Ditty";
+    font-size: clamp(13px, 1.35vw, 19px);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+    color: white;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, .9);
+}
+
+.arco1 {
+    background-image: url("../imagens/fallofshiganshina.webp");
+}
+
+.arco2 {
+    background-image: url("../imagens/104thcadetcorp.jpg");
+}
+
+.arco3 {
+    background-image: url("../imagens/thebatlleoftrost.jpg");
+}
+
+.arco4 {
+    background-image: url("../imagens/femaletitan.webp");
+}
+
+.arco5 {
+    background-image: url("../imagens/clashofthetitans.webp");
+}
+
+.arco6 {
+    background-image: url("../imagens/royalgovernment.webp");
+}
+
+.arco7 {
+    background-image: url("../imagens/returntoshiganshina");
+}
+
+.arco8 {
+    background-image: url("../imagens/marley.webp");
+}
+
+.arco9 {
+    background-image: url("../imagens/warforparadis.webp");
+}
+
+.numero-especial {
+    font-family: "Cloister";
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo>h1 {
+        font-size: 58px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+        max-width: 300px;
+        margin-bottom: 10px;
+        padding: 0 5px;
+    }
+
+    .linha-do-tempo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        min-height: auto;
+        padding: 20px 10px;
+        box-sizing: border-box;
+    }
+
+    .item-arco {
+        position: relative;
+        display: block;
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    .item-arco .card-arco {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        display: flex;
+        width: 100%;
+        max-width: 320px;
+        min-width: 0;
+        height: 180px;
+        min-height: 180px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .linha-do-tempo::before {
+        display: none;
+    }
+
+    .item-arco::before,
+    .item-arco::after {
+        display: none;
+    }
+
+    .numero {
+        top: 7px;
+        left: 7px;
+        width: auto;
+        height: auto;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        font-family: "Cloister";
+        font-size: 25px;
+    }
+
+    .card-arco h2 {
+        font-size: 20px;
+    }
+
+    .linha-do-tempo .item-arco {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .linha-do-tempo .item-arco .card-arco {
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+}

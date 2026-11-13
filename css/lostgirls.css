@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "CloisterBlack";
+    src: url("../CloisterBlack.ttf") format("truetype");
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.home {
+    color: white;
+    text-decoration: none;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.fundo::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.conteudo-fundo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.conteudo-fundo h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    margin-bottom: 45px;
+}
+
+.conteudo-fundo h2 span {
+    font-family: "CloisterBlack";
+}
+
+.seletor-ova h3 span {
+    font-family: "CloisterBlack";
+}
+
+.trailer {
+    width: 90%;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.trailer h3 {
+    font-family: "Ditty";
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+    border: 1px solid white;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .7);
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.informacoes,
+.sinopse {
+    width: 95%;
+    margin: 0 auto 60px;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.informacoes h3,
+.sinopse h3 {
+    font-family: "Ditty";
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom:
+        1px solid rgba(255, 255, 255, .2);
+}
+
+.informacoes table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.informacoes th,
+.informacoes td {
+    padding: 14px 18px;
+    border-bottom:
+        1px solid rgba(255, 255, 255, .2);
+}
+
+.informacoes th {
+    width: 30%;
+    color: #d8d8d8;
+    text-align: left;
+}
+
+.informacoes td {
+    text-align: left;
+}
+
+.informacoes tr:last-child th,
+.informacoes tr:last-child td {
+    border-bottom: none;
+}
+
+.sinopse p {
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+.sinopse p:last-child {
+    margin-bottom: 0;
+}
+
+.titulo-episodios {
+    width: 95%;
+    margin: 70px auto 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-family: "Ditty";
+    font-size: 55px;
+    color: white;
+    text-shadow:
+        0 4px 12px rgba(0, 0, 0, .9);
+}
+
+.episodio {
+    width: 95%;
+    margin: 0 auto 12px;
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    min-height: 160px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 15px;
+    overflow: hidden;
+    color: white;
+    transition: .3s;
+}
+
+.episodio:hover {
+    background: rgba(0, 0, 0, .68);
+}
+
+.cabecalho-episodios {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 20% 30% 50%;
+    min-height: 75px;
+    border-bottom:
+        1px solid rgba(255, 255, 255, .35);
+}
+
+
+.cabecalho-episodios div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-family: "Ditty";
+    font-size: 27px;
+    text-align: center;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255, 255, 255, .35);
+}
+
+
+.cabecalho-episodios div:last-child {
+    border-right: none;
+}
+
+.conteudo-episodio {
+    display: contents;
+}
+
+.numero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    font-family: "CloisterBlack";
+    font-size: 38px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, .3);
+}
+
+
+.nome-episodio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 25px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: break-word;
+    border-right:
+        1px solid rgba(255, 255, 255, .3);
+}
+
+.sinopse-episodio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+.seletor-ova {
+    width: 70%;
+    max-width: 750px;
+    margin: 0 auto 30px;
+    display: grid;
+    grid-template-columns: 55px 1fr 55px;
+    align-items: center;
+    gap: 15px;
+}
+
+.seletor-ova h3 {
+    font-family: "Ditty";
+    font-size: 38px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.seta {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .55);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.seta:hover {
+    background: rgba(65, 29, 0, .75);
+    transform: scale(1.1);
+}
+
+.seta:disabled {
+    opacity: .25;
+    cursor: default;
+    transform: none;
+}
+
+.capa-ova {
+    width: 70%;
+    max-width: 750px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.capa-ova img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+    border: 1px solid white;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .7);
+    transition: opacity .2s ease;
+}
+
+.voltar {
+    display: flex;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 45px auto 0;
+    padding: 15px 35px;
+    color: white;
+    background: #965812;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.voltar:hover {
+    background: #411d00;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo h2 {
+        font-size: 58px;
+        margin-bottom: 30px;
+    }
+
+    .trailer {
+        width: 92%;
+        margin-bottom: 50px;
+    }
+
+    .trailer h3 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .video {
+        border-radius: 12px;
+    }
+
+    .informacoes,
+    .sinopse {
+        width: 92%;
+        padding: 25px 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 15px;
+    }
+
+    .informacoes h3,
+    .sinopse h3 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .informacoes table {
+        font-size: 14px;
+    }
+
+    .informacoes th,
+    .informacoes td {
+        padding: 12px 10px;
+    }
+
+    .sinopse p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .titulo-episodios {
+        width: 92%;
+        margin: 55px auto 25px;
+        font-size: 40px;
+    }
+
+    .titulo-episodios::after {
+        width: 85%;
+        margin-top: 15px;
+    }
+
+    .episodio {
+        width: 92%;
+        margin-bottom: 10px;
+        grid-template-columns:
+            20% 30% 50%;
+        min-height: 150px;
+        border-radius: 12px;
+    }
+
+    .cabecalho-episodios {
+        grid-template-columns:
+            20% 30% 50%;
+        min-height: 65px;
+    }
+
+    .cabecalho-episodios>div {
+        padding: 10px 5px;
+        font-size: 16px;
+    }
+
+    .numero {
+        padding: 15px 5px;
+        font-size: 28px;
+    }
+
+    .nome-episodio {
+        padding: 18px 8px;
+        font-size: 10px;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    .sinopse-episodio {
+        padding: 18px 10px;
+        font-size: 11px;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .capa-ova {
+        width: 92%;
+        margin-bottom: 45px;
+    }
+
+    .capa-ova img {
+        max-height: 350px;
+        border-radius: 12px;
+    }
+
+    .seletor-ova {
+        width: 92%;
+        grid-template-columns: 42px 1fr 42px;
+        gap: 8px;
+        margin-bottom: 25px;
+    }
+
+    .seletor-ova h3 {
+        font-size: 28px;
+    }
+
+    .seta {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .voltar {
+        padding: 13px 25px;
+        font-size: 15px;
+    }
+}

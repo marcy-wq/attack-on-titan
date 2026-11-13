@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.overlay {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+}
+
+.conteudo-fundo {
+    position: relative;
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.conteudo-fundo h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.conteudo-fundo h3 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.texto,
+.estudios,
+.criador {
+    width: 95%;
+    margin: 0 auto 35px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.soundtrack {
+    width: 95%;
+    margin: 0 auto 35px;
+    text-align: left;
+}
+
+.soundtrack h3 {
+    font-family: "Ditty";
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.soundtrack p {
+    color: white;
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.texto h3,
+.estudios h3,
+.criador h3 {
+    font-family: "Ditty";
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.texto p,
+.estudios p,
+.criador p {
+    color: white;
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 5px;
+}
+
+.texto p:last-child,
+.soundtrack>p:last-of-type {
+    margin-bottom: 0;
+}
+
+.studio-card {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 25px 10px;
+}
+
+.studio-card+.studio-card {
+    border-top: 1px solid rgb(255, 255, 255);
+}
+
+.studio-card img {
+    width: 240px;
+    height: 180px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, .95);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.studio-texto {
+    flex: 1;
+}
+
+.studio-texto h4,
+.criador-texto h4,
+.compositor h4 {
+    font-family: "Ditty";
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.studio-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.criador-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.criador-conteudo img {
+    width: 230px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    flex-shrink: 0;
+}
+
+.criador-texto {
+    flex: 1;
+}
+
+.criador-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.criador-info {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.info-item strong {
+    color: white;
+    font-size: 16px;
+}
+
+.info-item span {
+    color: white;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.soundtrack-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.soundtrack-compositores {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.compositor {
+    width: 100%;
+    flex: 1;
+    padding: 25px;
+    background: rgba(0, 0, 0, .3);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+}
+
+.compositor h4 {
+    font-family: "Ditty";
+    font-size: 28px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.compositor p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.soundtrack-compositores,
+.soundtrack-playlist {
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.playlist-titulo {
+    font-family: "Ditty";
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.soundtrack p.playlist-descricao {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.spotify {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.spotify iframe {
+    display: block;
+    width: 100%;
+    height: 352px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo h2,
+    .conteudo-fundo h3 {
+        font-size: 58px;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .texto,
+    .estudios,
+    .criador {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .soundtrack {
+        width: 100%;
+        max-width: none;
+    }
+
+    .soundtrack p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .texto h3,
+    .estudios h3,
+    .criador h3,
+    .soundtrack h3 {
+        font-size: 30px;
+    }
+
+    .texto p,
+    .estudios p,
+    .criador p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .studio-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 0;
+    }
+
+    .studio-card img {
+        width: 100%;
+        max-width: 230px;
+        height: 150px;
+    }
+
+    .studio-texto h4 {
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .criador-conteudo {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .criador-conteudo>img {
+        width: 100%;
+        max-width: 220px;
+        height: 230px;
+    }
+
+    .criador-texto h4 {
+        font-size: 29px;
+        text-align: center;
+    }
+
+    .criador-info {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .info-item strong {
+        font-size: 15px;
+    }
+
+    .info-item span {
+        font-size: 14px;
+    }
+
+    .soundtrack-conteudo {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .soundtrack-compositores,
+    .soundtrack-playlist {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin: 0 auto;
+    }
+
+    .soundtrack-compositores {
+        gap: 15px;
+    }
+
+    .compositor {
+        padding: 20px 15px;
+    }
+
+    .compositor h4 {
+        font-size: 27px;
+        text-align: center;
+    }
+
+    .compositor p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .playlist-titulo {
+        font-size: 28px;
+    }
+
+    .soundtrack p.playlist-descricao {
+        font-size: 14px;
+    }
+
+    .spotify iframe {
+        height: 352px;
+    }
+}

@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+.hero h1,
+.conteudo-topicos h2 {
+    font-family: "Ditty", sans-serif;
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.6) 100%), url('../imagens/fundo.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+    z-index: 1;
+}
+
+.conteudo {
+    position: relative;
+    color: white;
+    text-align: center;
+    width: 70%;
+}
+
+.conteudo,
+.conteudo-topicos {
+    position: relative;
+    z-index: 2;
+}
+
+.conteudo h1 {
+    font-size: 120px;
+    margin: 0;
+}
+
+.conteudo p {
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.botao {
+    text-decoration: none;
+    color: white;
+    background: #965812;
+    padding: 15px 35px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.botao:hover {
+    background: #411d00;
+}
+
+.topicos {
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, transparent 75%, rgba(0, 0, 0, 0.6) 100%), url('../imagens/fundo2.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px;
+}
+
+.topicos::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+.topicos h2 {
+    font-family: "Ditty";
+    text-align: center;
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    gap: 40px;
+    justify-content: center;
+    padding: 30px 100px 100px;
+    margin-top: 0px;
+}
+
+.card {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .4s;
+    height: 280px;
+    width: 400px;
+    border: .2px solid white;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.08);
+    z-index: 50;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-card {
+    background: linear-gradient(transparent, rgba(0, 0, 0, .85));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 24px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.hero,
+.topicos {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.55) 45%, #000 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.topicos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.55) 45%, transparent 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero .overlay,
+.topicos .overlay {
+    z-index: 1;
+}
+
+.conteudo,
+.conteudo-topicos {
+    position: relative;
+    z-index: 3;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 3;
+    opacity: 0.85;
+    animation: aparecerScroll 1.5s ease forwards;
+}
+
+.scroll-indicator i {
+    font-size: 24px;
+    animation: saltitar 1.8s ease-in-out infinite;
+}
+
+@keyframes saltitar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(9px);
+    }
+}
+
+@keyframes aparecerScroll {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.85;
+    }
+}
+
+.conteudo-topicos {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.conteudo-topicos.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1480px) and (min-width: 769px) {
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 400px));
+        padding: 30px 20px 100px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .conteudo {
+        width: 90%;
+    }
+
+    .conteudo h1 {
+        font-size: 58px;
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+
+    .conteudo p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .botao {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+
+    .topicos {
+        padding: 40px 20px;
+    }
+
+    .topicos h2 {
+        font-size: 42px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 35px;
+        padding: 30px 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+        height: 120px;
+        margin: 0 auto;
+    }
+
+    .texto-card {
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, .45);
+    }
+
+    .card h3 {
+        margin: 0;
+        font-size: 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-indicator,
+    .scroll-indicator i {
+        animation: none;
+    }
+
+    .conteudo-topicos {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

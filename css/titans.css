@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.overlay {
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .45);
+}
+
+.conteudo-fundo {
+    position: relative;
+    color: white;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.conteudo-fundo>h1,
+.conteudo-fundo h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.introducao,
+.tipos,
+.caracteristicas {
+    width: 95%;
+    margin: 0 auto 35px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.introducao h3,
+.tipo-texto h3,
+.caracteristica-item h3 {
+    font-family: "Ditty";
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.introducao p,
+.tipo-texto p,
+.descricao-titans,
+.caracteristica-item p {
+    color: white;
+    text-align: justify;
+    line-height: 1.4;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.info-titans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+}
+
+.info-item strong {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.info-item span {
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.tipos h2,
+.nove-titans h2 {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.tipos h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.caracteristicas h2 {
+    font-family: "Ditty";
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.tipo-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.tipo-card+.tipo-card {
+    border-top: 1px solid rgb(255, 255, 255);
+    border-radius: 0;
+    padding-top: 30px;
+}
+
+.tipo-card:last-child {
+    margin-bottom: 0;
+}
+
+.tipo-card img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    flex-shrink: 0;
+}
+
+.tipo-texto h3 {
+    font-size: 32px;
+    text-align: left;
+}
+
+.tipo-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.nove-titans {
+    width: 100%;
+    margin: 45px auto;
+}
+
+.nove-titans>h2 {
+    margin-bottom: 20px;
+}
+
+.descricao-titans {
+    width: 70%;
+    margin: 0 auto 25px;
+    text-align: center;
+}
+
+.cards-titans {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 40px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.card-titan {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: .5px solid white;
+    transition: .3s;
+}
+
+.card-titan img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.nome-titan {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 85px;
+    padding: 20px 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .95));
+}
+
+.nome-titan h4 {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.caracteristicas {
+    margin-top: 35px;
+}
+
+.caracteristicas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.caracteristica-item {
+    padding: 20px;
+    background: rgba(0, 0, 0, .3);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+}
+
+.caracteristica-item h3 {
+    font-size: 29px;
+    text-align: left;
+}
+
+.caracteristica-item p {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.voltar {
+    display: flex;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 45px auto 0;
+    padding: 15px 35px;
+    color: white;
+    background: #965812;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.voltar:hover {
+    background: #411d00;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo h2,
+    .conteudo-fundo>h1 {
+        font-size: 58px;
+        margin-bottom: 20px;
+    }
+
+    .introducao,
+    .tipos,
+    .caracteristicas {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .introducao h3,
+    .tipo-texto h3,
+    .caracteristica-item h3 {
+        font-size: 30px;
+    }
+
+    .introducao p,
+    .tipo-texto p {
+        font-size: 15px;
+        line-height: 1.55;
+    }
+
+    .info-titans {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .info-item span {
+        font-size: 14px;
+    }
+
+    .tipos h2,
+    .nove-titans h2,
+    .caracteristicas h2 {
+        font-size: 58px;
+    }
+
+    .tipo-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 12px;
+    }
+
+    .tipo-card img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .nove-titans {
+        margin: 35px auto;
+    }
+
+    .descricao-titans {
+        width: 80%;
+        text-align: justify;
+        font-size: 15px;
+    }
+
+    .cards-titans {
+        width: 90%;
+        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+        padding: 10px 0 0;
+        row-gap: 30px;
+        column-gap: 15px;
+        margin: 0 auto;
+    }
+
+    .card-titan {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .nome-titan {
+        min-height: 40px;
+        padding: 8px 3px 5px;
+    }
+
+    .nome-titan h4 {
+        font-size: 14px;
+        line-height: 1.1;
+    }
+
+    .caracteristicas-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .caracteristica-item {
+        padding: 15px;
+    }
+
+    .caracteristica-item h3 {
+        font-size: 27px;
+    }
+
+    .caracteristica-item p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .voltar {
+        padding: 13px 25px;
+        font-size: 15px;
+    }
+}

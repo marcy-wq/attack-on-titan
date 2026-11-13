@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Ditty";
+    src: url("../Ditty.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Cloister";
+    src: url("../CloisterBlack.ttf") format("truetype");
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.466);
+}
+
+.esquerda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    width: 100px;
+}
+
+header i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.home {
+    color: white;
+    text-decoration: none;
+}
+
+.fundo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../imagens/fundo.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 70px 30px 60px;
+}
+
+.fundo::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.conteudo-fundo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.conteudo-fundo h1, .titulo-volumes {
+    font-family: "Ditty";
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.caixa {
+    width: 95%;
+    margin: 0 auto 35px;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 20px;
+    text-align: left;
+}
+
+.caixa h2,
+.caixa h3 {
+    font-family: "Ditty";
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    padding-bottom: 15px;
+    margin-bottom: 22px;
+}
+
+.caixa h2 {
+    font-size: 42px;
+}
+
+.caixa h3 {
+    font-size: 32px;
+    margin-top: 30px;
+}
+
+.caixa p {
+    font-size: 17px;
+    line-height: 1.65;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.caixa p:last-child {
+    margin-bottom: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 13px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+    text-align: left;
+    line-height: 1.5;
+}
+
+th {
+    width: 32%;
+    color: #d8d8d8;
+}
+
+tr:last-child th,
+tr:last-child td {
+    border-bottom: none;
+}
+
+.nota {
+    margin-top: 18px;
+    color: #d5d5d5;
+    font-size: 14px;
+}
+
+.subtitulo-volumes {
+    text-align: center;
+    margin: 0 auto 30px;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.volume {
+    width: 95%;
+    margin: 0 auto 18px;
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 30px;
+    align-items: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, .58);
+    backdrop-filter: blur(2px);
+    border: 1px solid white;
+    border-radius: 17px;
+    color: white;
+    transition: .3s;
+}
+
+.volume:hover {
+    background: rgba(0, 0, 0, .72);
+    transform: translateY(-2px);
+}
+
+.capa-volume {
+    width: 100%;
+    max-width: 210px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, .04);
+}
+
+.info-volume h3 {
+    font-family: "Ditty";
+    font-size: 34px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.numero-volume {
+    font-family: "Cloister", serif;
+}
+
+.info-volume p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.info-volume strong {
+    color: white;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 15px 35px;
+    color: white;
+    background: #965812;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botao-autor {
+    margin-top: 22px;
+}
+
+.botao:hover {
+    background: #411d00;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 18px 15px;
+    }
+
+    .esquerda {
+        gap: 12px;
+    }
+
+    .logo {
+        width: 75px;
+    }
+
+    header i {
+        font-size: 18px;
+    }
+
+    .fundo {
+        padding: 80px 10px 30px;
+        background-attachment: fixed;
+    }
+
+    .conteudo-fundo>h1 {
+        font-size: 58px;
+        margin-bottom: 30px;
+    }
+
+    .caixa {
+        width: 100%;
+        max-width: 320px;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin: 0 auto 25px;
+    }
+
+    .caixa h2 {
+        font-size: 34px;
+    }
+
+    .caixa h3 {
+        font-size: 28px;
+    }
+
+    .caixa p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 11px 8px;
+        overflow-wrap: anywhere;
+    }
+
+    th {
+        width: 38%;
+    }
+
+    .titulo-volumes {
+        font-size: 45px;
+        margin-top: 45px;
+    }
+
+    .subtitulo-volumes {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .volume {
+        width: 100%;
+        max-width: 320px;
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 12px;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin: 0 auto 18px;
+        align-items: center;
+    }
+
+    .capa-volume {
+        width: 82px;
+        height: 125px;
+        align-self: center;
+    }
+
+    .info-volume h3 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .info-volume p {
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .botao {
+        padding: 13px 25px;
+        font-size: 15px;
+    }
+
+    .botao-volumes {
+        background: #965812;
+        border: none;
+        color: white;
+    }
+
+    .botao-autor {
+        margin-top: 20px;
+    }
+
+    .botao-volumes:hover {
+        background: #965812;
+        color: white;
+        transform: none;
+    }
+}
