@@ -305,6 +305,7 @@ header i {
     .fundo {
         padding: 80px 10px 30px;
         background-attachment: scroll;
+        min-height: 100svh;
     }
 
     .conteudo-fundo h2 {
