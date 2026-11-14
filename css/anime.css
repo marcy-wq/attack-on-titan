@@ -48,13 +48,22 @@ header i {
 .fundo {
     min-height: 100vh;
     position: relative;
+    background: none;
+    color: white;
+    padding: 70px 30px 60px;
+    isolation: isolate;
+}
+
+.fundo::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
     background-image: url("../imagens/fundo.png");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     background-repeat: no-repeat;
-    color: white;
-    padding: 70px 30px 60px;
+    pointer-events: none;
 }
 
 .overlay {
